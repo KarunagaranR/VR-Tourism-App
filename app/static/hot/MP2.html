@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machu Picchu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js" integrity="sha512-UpqpXUuK8DzhknJ0rpgN/Ybdd/SE8JWyGhrCYJIxEJX8c4H9M4VOJ8uvwepxPvARPYiAxHZar7MLh9An015Z/w==" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+ 
+    <a-scene>
+        
+       
+        <img id="panorama" src="Picchu2.jpg" crossorigin="anonymous" />
+   
+        <a-sky src="#panorama" rotation="0 260 0"></a-sky>
+        <a-entity position="0 0 1.5">
+            <a-camera></a-camera>
+        </a-entity>
+    </a-scene>
+    <a href="index.html">Back to Map</a>
+</body>
+</html>

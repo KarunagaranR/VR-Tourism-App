@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAJ MAHAL VR Experience</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras/src/loaders/animation-mixer.js"></script>
+    <style>
+        .back-to-home {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 999;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4000ff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-home:hover {
+            background-color: #8acdef;
+        }
+
+        .navigation-buttons {
+            position: fixed;
+            top: 5px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 999;
+        }
+
+        .navigation-buttons button {
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            background-color: pink;
+            color: #0f0d0d;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: red;
+        }
+
+        .info-button {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ff00;
+            color: #000000;
+        }
+
+        .info-button:hover {
+            background-color: #32cd32;
+        }
+
+        .info-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .info-panel.open {
+            right: 0;
+        }
+
+        .info-panel .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .info-panel p {
+            text-indent:30px; /* Adjust this value to increase or decrease the space */
+        }
+        a-scene {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+        }
+    </style>
+    <script>
+
+        function changeView(viewNumber) {
+            var panorama = document.getElementById("panorama");
+            var viewName = "TajMahal";
+            var imageUrl = "/static/360 View/" + viewName + "/" + viewNumber + ".jpg";
+            panorama.setAttribute('src', imageUrl);
+        }
+
+        function showInfo() {
+            document.getElementById("info-panel").classList.add("open");
+        }
+
+        
+        function hideInfo() {
+            document.getElementById("info-panel").classList.remove("open");
+        }
+    </script>
+</head>
+<body>
+   
+    <div class="navigation-buttons">
+        <button onclick="changeView('frontview')">Front View</button>
+        <button onclick="changeView('topview')">Top View</button>
+        <button onclick="changeView('backview')">Back View</button>
+    </div>
+
+    <a-scene vr-mode-ui="enabled: true">
+      
+        <a-sky id="panorama" src="/static/360 View/TajMahal/frontview.jpg" rotation="0 270 0"></a-sky>
+        <a-entity position="0 0 1.5">
+            <a-camera></a-camera>
+        </a-entity>
+    </a-scene>
+
+    <button class="info-button" onclick="showInfo()">Info</button>
+
+ 
+    <div id="info-panel" class="info-panel">
+        <button class="close-button" onclick="hideInfo()">Close</button>
+        <h2>Taj Mahal: The Mosque and the Jawab</h2>
+        <img src='/static/Sample Images/TM1.jpg' style="width:300px">
+        <a href='/static/hot/taj.html'>view - click me</a>
+        <h3>Historical Point</h3>
+        <p><strong style='color:red'>Completion in 1643:</strong> The mosque and the jawab were completed around the same time as the Taj Mahal itself, in 1643, under the reign of Mughal Emperor Shah Jahan. They were integral components of the overall complex, designed to complement the mausoleum both functionally and aesthetically. The mosque serves religious purposes, while the jawab ensures architectural symmetry.</p>
+        <h3>Interesting Point</h3>
+        <p><strong style='color:red'>Architectural Symmetry:</strong> The jawab, while identical to the mosque in design and appearance, was deliberately built with no practical function other than to maintain the symmetry of the Taj Mahal complex. This emphasis on perfect balance and harmony is a hallmark of Mughal architecture and adds to the visual and symbolic beauty of the site. The mirrored structures create a balanced frame for the central mausoleum, enhancing its ethereal and timeless quality.</p>
+    </div>
+
+
+    <a class="back-to-home" href="index.html">Back to Map</a>
+</body>
+</html>

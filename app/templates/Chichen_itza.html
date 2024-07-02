@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chichen Itza VR Experience</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras/src/loaders/animation-mixer.js"></script>
+    <style>
+        .back-to-home {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 999;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4000ff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .back-to-home:hover {
+            background-color: #8acdef;
+        }
+
+        .navigation-buttons {
+            position: fixed;
+            top: 5px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 999;
+        }
+        
+        .navigation-buttons button {
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            background-color: pink;
+            color: #0f0d0d;
+        }
+        
+        .navigation-buttons button:hover {
+            background-color: red;
+        }
+
+        .info-button {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ff00;
+            color: #000000;
+        }
+
+        .info-button:hover {
+            background-color: #32cd32;
+        }
+
+        .info-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .info-panel.open {
+            right: 0;
+        }
+
+        .info-panel .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .info-panel p {
+            text-indent:30px; /* Adjust this value to increase or decrease the space */
+        }
+
+        a-scene {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0; /* Remove any margin */
+        }
+    </style>
+    <script>
+       
+        function changeView(viewName) {
+            var panorama = document.getElementById("panorama");
+            var imageUrl = "/static/360 View/Chichen Itza/" + viewName + ".jpg";
+            panorama.setAttribute('src', imageUrl);
+        }
+
+      
+        function showInfo() {
+            document.getElementById("info-panel").classList.add("open");
+        }
+
+        function hideInfo() {
+            document.getElementById("info-panel").classList.remove("open");
+        }
+    </script>
+</head>
+<body>
+ 
+    <div class="navigation-buttons">
+        <button onclick="changeView('frontview')">Front View</button>
+        <button onclick="changeView('topview')">Top View</button>
+        <button onclick="changeView('backview')">Back View</button>
+    </div>
+
+    <a-scene vr-mode-ui="enabled: true">  
+       
+        <a-sky id="panorama" src="/static/360 View/Chichen Itza/frontview.jpg" rotation="0 300 0"></a-sky>
+        <a-entity position="0 0 1.5">
+            <a-camera></a-camera>
+        </a-entity>
+    </a-scene> 
+
+
+    <button class="info-button" onclick="showInfo()">Info</button>
+
+
+    <div id="info-panel" class="info-panel">
+        <button class="close-button" onclick="hideInfo()">Close</button>
+        <h2>Chichen Itza: The Temple of the Warriors</h2>
+        <img src='/static/Sample Images/CI2.jpeg'>
+        <a href='/static/hot/CI.html'>view 1 - click me</a>
+        <a href='/static/hot/CI2.html'>view 2 - click me</a>
+        <h3>Historical Point</h3>
+        <p><strong style='color:red'>Post-Classic Period Construction:</strong> The Temple of the Warriors was built during the Late Post-Classic period (around 1000-1200 AD). It reflects the influence of the Toltec civilization on the Maya, showcasing a fusion of architectural styles and cultural elements that characterized this era in Mesoamerican history.</p>
+        <h3>Interesting Point</h3>
+        <p><strong style='color:red'>Thousand Columns:</strong> Adjacent to the Temple of the Warriors is the Group of a Thousand Columns, an extensive colonnaded area that once supported a large roofed market or assembly hall. These columns are intricately carved with depictions of warriors and deities, adding to the grandeur and significance of the site. The vast number of columns creates an impressive visual effect and illustrates the temple's importance as a center for social and ceremonial activities.</p>
+    </div>
+
+
+    <a class="back-to-home" href="index.html">Back to Map</a>
+</body>
+</html>

@@ -1,0 +1,342 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background: url('woman-wearing-virtual-reality-headset-with-city-background-generative-ai_797840-129.avif') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    width: 300px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(30, 7, 238, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom-color: #33adff;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+ */
+
+
+
+
+/* 
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('woman-wearing-virtual-reality-headset-with-city-background-generative-ai_797840-129.avif') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    width: 300px;
+    padding: 40px;
+    background-color: rgba(141, 137, 137, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(30, 7, 238, 0.2);
+    backdrop-filter: blur(10px); /* Apply blur effect 
+    filter: blur(1px); /* Fallback for older browsers 
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom-color: #33adff;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('549551.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    position: relative; /* Required for the pseudo-element */
+    width: 300px;
+    padding: 40px;
+    background-color: rgba(242, 242, 242, 0.226);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(13, 232, 248, 0.2);
+}
+
+/* Pseudo-element for the blurred background */
+.login-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit; /* Inherit the background */
+    border-radius: inherit; /* Inherit the border radius */
+    filter: blur(10px); /* Apply blur effect */
+    z-index: -1; /* Ensure it's behind the form */
+}
+
+h2 {
+    text-align: center;
+    color: #131212;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #1a48ff;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom-color: #33adff;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #161515;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #005ccb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('549551.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    position: relative; /* Required for the pseudo-element */
+    width: 300px;
+    padding: 40px;
+    background-color: rgba(242, 242, 242, 0.226);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(13, 232, 248, 0.2);
+}
+
+/* Pseudo-element for the blurred background */
+.login-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit; /* Inherit the background */
+    border-radius: inherit; /* Inherit the border radius */
+    filter: blur(10px); /* Apply blur effect */
+    z-index: -1; /* Ensure it's behind the form */
+}
+
+h2 {
+    text-align: center;
+    color: #131212;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #1a48ff;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+    background-color: rgba(255, 255, 255, 0.79); /* Glossy, transparent input box color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom-color: #33adff;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #161515;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #005ccb;
+}

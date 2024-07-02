@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seven Wonders of the World Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        html, body, #map {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .wonder-name {
+            font-size: 18px; 
+            display: inline-block;
+        }
+
+        .leaflet-popup-content {
+            width: 350px; 
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+
+        var map = L.map('map').setView([0, 0], 2);
+
+        var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; Esri'
+        }).addTo(map);
+
+        var labelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Labels &copy; Esri'
+        }).addTo(map);
+
+
+        var sevenWonders = [
+            { 
+                name: 'Great Wall of China', 
+                location: [40.4319, 116.5704],
+                info: 'The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line across the historical northern borders of China to protect the Chinese states and empires against the raids and invasions of the various nomadic groups of the Eurasian Steppe.',
+                vrExperience: 'China.html',
+                image:'gwc.jpg',
+                color: 'rgb(2,136,209)' 
+            },
+            { 
+                name: 'Taj Mahal', 
+                location: [27.1751, 78.0421],
+                info: 'The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1631 by the Mughal emperor Shah Jahan to house the tomb of his favorite wife, Mumtaz Mahal.',
+                vrExperience: 'Tajmahal.html',
+                image:'taj.jpg',
+                color: 'rgb(156,39,176)'
+            },
+            { 
+                name: 'Colosseum', 
+                location: [41.8902, 12.4922],
+                info: 'The Colosseum is an oval amphitheater in the center of the city of Rome, Italy. Built of concrete and sand, it is the largest amphitheater ever built. Construction began under the emperor Vespasian in AD 72, and was completed in AD 80 under his successor and heir Titus.',
+                vrExperience: 'Colosseum.html' ,
+                image:'col.jpg',
+                color: 'rgb(136,14,79)'
+            },
+            { 
+                name: 'Petra', 
+                location: [30.3285, 35.4444],
+                info: 'Petra is a historical and archaeological city in southern Jordan. Petra lies on the slope of Jebel al-Madhbah (identified by some as the biblical Mount Hor) in a basin among the mountains which form the eastern flank of Arabah (Wadi Araba), the large valley running from the Dead Sea to the Gulf of Aqaba.',
+                vrExperience: 'Petra.html' ,
+                image:'petra.jpg',
+                color: 'rgb(230,81,0)'
+            },
+            { 
+                name: 'Christ the Redeemer', 
+                location: [-22.9519, -43.2105],
+                info: 'Christ the Redeemer is an Art Deco statue of Jesus Christ in Rio de Janeiro, Brazil, created by French sculptor Paul Landowski and built by the Brazilian engineer Heitor da Silva Costa, in collaboration with the French engineer Albert Caquot. Romanian sculptor Gheorghe Leonida fashioned the face.',
+                vrExperience: 'christ_the_redeemer.html' ,
+                image:'christ-the-redeemer.jpg',
+                color: 'rgb(249,168,37)'
+            },
+            { 
+                name: 'Machu Picchu', 
+                location: [-13.1631, -72.5450],
+                info: 'Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a 2,430-meter (7,970 ft) mountain ridge. It is located in the Machupicchu District within Urubamba Province above the Sacred Valley, which is 80 kilometers (50 mi) northwest of Cuzco.',
+                vrExperience: 'Machu_picchu.html' ,
+                image:'Mp.jpg',
+                color: 'rgb(121,85,72)'
+            },
+            { 
+                name: 'Chichen Itza', 
+                location: [20.6843, -88.5691],
+                info: 'Chichen Itza was a large pre-Columbian city built by the Maya people of the Terminal Classic period. The archaeological site is located in Tinúm Municipality, Yucatán State, Mexico.',
+                vrExperience: 'Chichen_itza.html' ,
+                image:'Ci.jpeg',
+                color: 'rgb(0,0,0)'
+                
+            }
+        ];
+
+
+        sevenWonders.forEach(function (wonder) {
+            var marker = L.marker(wonder.location).addTo(map);
+
+
+            var popupContent = '<div class="center-text">' +
+                               '<b class="wonder-name">' + wonder.name + '</b><br>  </div>' +
+                               '<img src="/static/360 View/'+ wonder.image + '" width="300" height="200"><br>' +
+                               wonder.info;
+
+            marker.bindPopup(popupContent);
+
+
+            marker.on('click', function(e) {
+                marker.openPopup();
+            });
+
+
+            marker.on('dblclick', function(e) {
+                window.location.href = wonder.vrExperience;
+            });
+        });
+
+
+    </script>
+</body>
+</html>

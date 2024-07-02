@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China VR Experience</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras/src/loaders/animation-mixer.js"></script>
+    <style>
+        .back-to-home {
+            position: fixed;
+            bottom: 10px;
+            left: 10px; 
+            z-index: 999;
+            text-decoration: none;
+            color: #ffffff; 
+            background-color: #4000ff; 
+            padding: 8px 16px; 
+            border-radius: 5px;
+            font-size: 14px;
+            border: none; 
+            cursor: pointer;
+        }
+        
+        .back-to-home:hover {
+            background-color: #8acdef; 
+        }
+
+        .navigation-buttons {
+            position: fixed;
+            top: 5px;
+            right: 10px; 
+            display: flex;
+            flex-direction: column; 
+            gap: 5px; 
+            z-index: 999;
+        }
+        
+        .navigation-buttons button {
+            padding: 8px 12px; 
+            font-size: 12px; 
+            cursor: pointer;
+            border: none;
+            border-radius: 15px; 
+            background-color: pink;
+            color: #0f0d0d; 
+        }
+        
+        .navigation-buttons button:hover {
+            background-color: red; 
+        }
+
+        a-scene {
+            width: 100%; 
+            height: 100%; 
+            position: absolute; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0; /* Remove any margin */
+        }
+    </style>
+    <script>
+        // Function to change the view
+        function changeView(viewType, viewName) {
+            var panorama = document.getElementById("panorama");
+            var videosphere = document.getElementById("videosphere");
+
+            if (viewType === 'image') {
+                var imageUrl = "/static/360 View/Great Wall of China/" + viewName + ".jpg";
+                panorama.setAttribute('src', imageUrl);
+                panorama.setAttribute('visible', true);
+                videosphere.setAttribute('visible', false);
+            } else if (viewType === 'video') {
+                var videoUrl = "/static/360 Video/" + viewName + ".mp4";
+                videosphere.setAttribute('src', videoUrl);
+                videosphere.setAttribute('visible', true);
+                panorama.setAttribute('visible', false);
+            }
+        }
+
+        // Function to toggle video audio
+        function toggleVideoAudio() {
+            var video = document.getElementById("tajMahalVideo");
+            if (video.muted) {
+                video.muted = false; // Unmute the video
+            } else {
+                video.muted = true; // Mute the video
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <button onclick="changeView('image', 'frontview')">Front View</button>
+        <button onclick="changeView('image', 'topview')">Top View</button>
+        <button onclick="changeView('image', 'backview')">Back View</button>
+        <button onclick="changeView('video', 'taj')">Play Video</button>
+        <button onclick="toggleVideoAudio()">Toggle Audio</button> <!-- Added control for audio -->
+    </div>
+
+    <a-scene vr-mode-ui="enabled: true">
+        <!-- 360 Image -->
+        <a-sky id="panorama" src="/static/360 View/Great Wall of China/frontview.jpg" rotation="0 300 0"></a-sky>
+        
+        <!-- 360 Video -->
+        <a-assets>
+            <video id="tajMahalVideo" autoplay loop="false" muted playsinline src="/static/360 Video/taj.mp4"></video> <!-- Added playsinline for mobile support -->
+        </a-assets>
+        <a-videosphere id="videosphere" src="#tajMahalVideo" rotation="0 180 0" visible="false"></a-videosphere>
+        
+        <!-- Camera -->
+        <a-entity position="0 0 1.5">
+            <a-camera></a-camera>
+        </a-entity>
+    </a-scene>
+
+    <!-- Link back to the previous page -->
+    <a class="back-to-home" href="/">Back to Map</a>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+  
+    <link href="/register">
+</head>
+
+<style>
+
+
+    
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/549551.jpg');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    position: relative; /* Required for the pseudo-element */
+    width: 300px;
+    padding: 40px;
+    background-color: rgba(242, 242, 242, 0.226);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(13, 232, 248, 0.2);
+}
+
+/* Pseudo-element for the blurred background */
+.login-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit; /* Inherit the background */
+    border-radius: inherit; /* Inherit the border radius */
+    filter: blur(10px); /* Apply blur effect */
+    z-index: -1; /* Ensure it's behind the form */
+}
+
+h2 {
+    text-align: center;
+    color: #131212;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #1a48ff;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom-color: #33adff;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #161515;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #005ccb;
+}
+
+
+
+</style>
+<body bgcolor="Black" style="color: white;">
+    <div class="login-container">
+        <form method="POST" action="/login" class="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" onclick="window.location.href='/index.html'">Login</button>
+            <a href="/register">Register</a>
+        </form>
+    </div>
+
+   
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Tourism Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/549551.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            padding: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        header nav {
+            margin-left: auto;
+        }
+        header nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        main {
+            padding: 2em;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 3em auto;
+            text-align: center;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        .world-wonders {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+        }
+        .wonder {
+            position: relative;
+            background-color: rgba(245, 245, 245, 0.9);
+            padding: 1em;
+            border-radius: 8px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .wonder img {
+            max-width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .wonder h3 {
+            margin-top: 0.5em;
+        }
+        .wonder .historical-data {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .wonder:hover .historical-data {
+            transform: translateY(0);
+        }
+        .wonder:hover img {
+            transform: scale(1.1);
+        }
+        .get-started {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background-color: #43b0f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .get-started:hover {
+            background-color: blue;
+        }
+        .world-wonders-title {
+            text-align: center;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 1200px) {
+            header {
+                padding: 1.5em;
+            }
+            main {
+                padding: 1.5em;
+                margin: 2em auto;
+            }
+            .world-wonders {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            header h1 {
+                position: static;
+                transform: none;
+                margin-bottom: 1em;
+            }
+            header nav {
+                margin-left: 0;
+            }
+            header nav a {
+                display: block;
+                margin: 0.5em 0;
+            }
+            .wonder {
+                padding: 0.5em;
+            }
+        }
+        @media (max-width: 480px) {
+            header {
+                padding: 1em;
+            }
+            main {
+                padding: 1em;
+                margin: 1em auto;
+            }
+            .get-started {
+                padding: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to VR Tourism</h1>
+        <nav>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Explore Virtual Tours</h2>
+            <p>Experience amazing places from the comfort of your home.</p>
+        </section>
+        <section>
+            <h2 class="world-wonders-title">World Wonders</h2>
+            <div class="world-wonders">
+                <div class="wonder">
+                    <img src="/static/360 view/col.jpg" alt="Colosseum">
+                    <h3>Colosseum</h3>
+                    <p>Step back in time to the grandeur of Rome's ancient amphitheater.</p>
+                    <div class="historical-data">
+                        The Colosseum, completed in AD 80, was the largest amphitheater ever built and could hold up to 80,000 spectators.
+                    </div>
+                </div>
+                <div class="wonder">
+                    <img src="/static/360 view/petra.jpg" alt="Petra">
+                    <h3>Petra</h3>
+                    <p>Discover the rose-red city carved into the cliffs of Jordan.</p>
+                    <div class="historical-data">
+                        Petra, established possibly as early as 312 BC, was the capital of the Nabataean Kingdom.
+                    </div>
+                </div>
+                <div class="wonder">
+                    <img src="/static/360 view/taj.jpg" alt="Taj Mahal">
+                    <h3>Taj Mahal</h3>
+                    <p>Admire the beauty of this white marble mausoleum in India.</p>
+                    <div class="historical-data">
+                        The Taj Mahal, completed in 1653, was commissioned by Emperor Shah Jahan in memory of his wife Mumtaz Mahal.
+                    </div>
+                </div>
+                <div class="wonder">
+                    <img src="/static/360 view/Mp.jpg" alt="Machu Picchu">
+                    <h3>Machu Picchu</h3>
+                    <p>Explore the lost city of the Incas, perched high in the Andes Mountains.</p>
+                    <div class="historical-data">
+                        Machu Picchu, built in the 15th century, served as an estate for the Inca emperor Pachacuti.
+                    </div>
+                </div>
+                <div class="wonder">
+                    <img src="/static/360 view/Ci.jpeg" alt="Chichen Itza">
+                    <h3>Chichen Itza</h3>
+                    <p>Marvel at the pyramid of Kukulkan and other wonders of this Mayan city.</p>
+                    <div class="historical-data">
+                        Chichen Itza, a large pre-Columbian city, was built by the Maya people and thrived from AD 600 to the 1200s.
+                    </div>
+                </div>
+                <div class="wonder">
+                    <img src="/static/360 View/christ-the-redeemer.jpg" alt="Christ the Redeemer">
+                    <h3>Christ the Redeemer</h3>
+                    <p>See the iconic statue overlooking Rio de Janeiro.</p>
+                    <div class="historical-data">
+                        Christ the Redeemer, completed in 1931, is a colossal statue of Jesus Christ in Rio de Janeiro, Brazil.
+                    </div>
+                </div>
+                <div class="wonder">
+                    <img src="/static/360 View/gwc.jpg" alt="Great Wall of China">
+                    <h3>Great Wall of China</h3>
+                    <p>Walk along the ancient walls stretching over 13,000 miles.</p>
+                    <div class="historical-data">
+                        Built between the 7th and 16th centuries, the Great Wall of China was intended to protect the Chinese states and empires from various nomadic groups.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a class="get-started" href="/login">Get Started</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS wonders (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    latitude REAL NOT NULL,
+    longitude REAL NOT NULL,
+    information TEXT NOT NULL,
+    vr_experience TEXT NOT NULL,
+    image TEXT NOT NULL,
+    color TEXT NOT NULL
+);
+
+INSERT INTO wonders (name, latitude, longitude, information, vr_experience, image, color) VALUES 
+    ('Great Wall of China', 40.4319, 116.5704, 'The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line across the historical northern borders of China to protect the Chinese states and empires against the raids and invasions of the various nomadic groups of the Eurasian Steppe.', 'China.html', 'gwc.jpg', 'rgb(2,136,209)'),
+    ('Taj Mahal', 27.1751, 78.0421, 'The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1631 by the Mughal emperor Shah Jahan to house the tomb of his favorite wife, Mumtaz Mahal.', 'Tajmahal.html', 'taj.jpg', 'rgb(156,39,176)'),
+    ('Colosseum', 41.8902, 12.4922, 'The Colosseum is an oval amphitheater in the center of the city of Rome, Italy. Built of concrete and sand, it is the largest amphitheater ever built. Construction began under the emperor Vespasian in AD 72, and was completed in AD 80 under his successor and heir Titus.', 'Colosseum.html', 'col.jpg', 'rgb(136,14,79)'),
+    ('Petra', 30.3285, 35.4444, 'Petra is a historical and archaeological city in southern Jordan. Petra lies on the slope of Jebel al-Madhbah (identified by some as the biblical Mount Hor) in a basin among the mountains which form the eastern flank of Arabah (Wadi Araba), the large valley running from the Dead Sea to the Gulf of Aqaba.', 'Petra.html', 'petra.jpg', 'rgb(230,81,0)'),
+    ('Christ the Redeemer', -22.9519, -43.2105, 'Christ the Redeemer is an Art Deco statue of Jesus Christ in Rio de Janeiro, Brazil, created by French sculptor Paul Landowski and built by the Brazilian engineer Heitor da Silva Costa, in collaboration with the French engineer Albert Caquot. Romanian sculptor Gheorghe Leonida fashioned the face.', 'christ_the_redeemer.html', 'christ-the-redeemer.jpg', 'rgb(249,168,37)'),
+    ('Machu Picchu', -13.1631, -72.5450, 'Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a 2,430-meter (7,970 ft) mountain ridge. It is located in the Machupicchu District within Urubamba Province above the Sacred Valley, which is 80 kilometers (50 mi) northwest of Cuzco.', 'Machu_picchu.html', 'Mp.jpg', 'rgb(121,85,72)'),
+    ('Chichen Itza', 20.6843, -88.5691, 'Chichen Itza was a large pre-Columbian city built by the Maya people of the Terminal Classic period. The archaeological site is located in Tinúm Municipality, Yucatán State, Mexico.', 'Chichen_itza.html', 'Ci.jpeg', 'rgb(0,0,0)');
+
